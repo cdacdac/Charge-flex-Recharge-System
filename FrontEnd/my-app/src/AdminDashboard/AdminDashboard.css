@@ -1,0 +1,123 @@
+/* Define CSS Variables */
+:root {
+  --primary-gradient: linear-gradient(to right, #dc2626, #b91c1c); /* Requested Shading */
+  --secondary-color: #f08a5d;
+  --background-color: #222831; /* Dark Gray */
+  --table-bg: #31363f; /* Softer Dark Background */
+  --text-color: #eeeeee;
+  --font-family: 'Roboto', sans-serif;
+}
+
+/* Global Styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background: #2a2e35; /* Dark Gray instead of Black */
+  color: var(--text-color);
+}
+
+/* Page Container */
+.page-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+}
+
+/* Content Container */
+.content-container {
+  width: 90%;
+  max-width: 1200px;
+  padding: 2rem;
+  background: var(--background-color);
+  border-radius: 8px;
+}
+
+/* Table Heading */
+.table-heading {
+  text-align: center;
+  font-size: 1.8rem;
+  background-image: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Table Container */
+.table-container {
+  overflow-y: auto;
+  max-height: 500px;
+  margin: 0 auto;
+  width: 100%;
+  border-radius: 8px;
+  background: var(--table-bg);
+}
+
+/* Styled Table */
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Table Header */
+.styled-table thead th {
+  background: var(--primary-gradient); /* Requested Gradient */
+  color: #fff;
+  padding: 12px;
+  text-align: center;
+}
+
+/* Table Cells */
+.styled-table th,
+.styled-table td {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+}
+
+/* Alternating Row Backgrounds */
+.styled-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hover Effect */
+.styled-table tbody tr:hover {
+  background: rgba(240, 138, 93, 0.3); /* Softer Hover */
+}
+
+/* Show All Transactions Button */
+.show-all-button {
+  display: block;
+  margin: 1.5rem auto 0;
+  padding: 10px 20px;
+  font-weight: 600;
+  background: linear-gradient(to right, #dc2626, #b91c1c);
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.show-all-button:hover {
+  background: linear-gradient(to right, #b91c1c, #990f0f);
+  transform: scale(1.05);
+}
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .content-container {
+    padding: 1rem;
+  }
+  .table-heading {
+    font-size: 1.5rem;
+  }
+}
