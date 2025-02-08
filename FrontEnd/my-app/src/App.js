@@ -5,6 +5,7 @@ import Navbar from './NavBar';
 import Home from './Home/Home.js';
 import Signup from './SignUp/SignUp.js';
 import Login from './Login/Login.js';
+import About from './About/About.js';
 import CustomerDashboard from './CustomerDashboard/CustomerDashboard.js';
 import RechargePlans from './RechargePlans/RechargePlans.js';
 import AdminDashboard from './AdminDashboard/AdminDashboard.js';
@@ -22,6 +23,7 @@ function App() {
           <Route path="/signup" element={<Signup />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<AdminDashboard />} />
+          <Route path="/about" element={<About />} />
           <Route path="/" element={<Navigate to="/home" replace />} />
         </Routes>
       </Router>
