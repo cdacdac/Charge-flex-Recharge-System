@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +20,7 @@ import com.Charge_Flex.dto.AuthenticationResponse;
 import com.Charge_Flex.dto.RecordDto;
 import com.Charge_Flex.dto.UserDto;
 import com.Charge_Flex.entity.Records;
+import com.Charge_Flex.entity.TransactionDetails;
 import com.Charge_Flex.entity.Users;
 import com.Charge_Flex.repository.RecordRepository;
 import com.Charge_Flex.repository.UserRepository;
@@ -121,9 +124,12 @@ public class AuthController {
         return recordRepository.findAll();
         
     }
-//
-//	@GetMapping("/createTransaction/{amount}")
-//	public TransactionDetails createTransaction(@PathVariable(name="") Double amount) {
-//		return authService.createTransaction(amount);
-//	}
+
+	@PostMapping("/createTransaction/{amount}")
+	@CrossOrigin("*")
+	public TransactionDetails createTransaction(@PathVariable("amount") Double amount) {
+		return authService.createTransaction(amount);
+	}
+	
+	
 }

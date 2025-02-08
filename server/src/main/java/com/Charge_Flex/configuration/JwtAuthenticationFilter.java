@@ -3,6 +3,7 @@ package com.Charge_Flex.configuration;
 import java.io.IOException;
 
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContext;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -24,15 +25,12 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter{
 	
-	private final JWTUtil jwtUtil;
-	private final UserService userService;
+	@Autowired
+	JWTUtil jwtUtil;
 	
+	@Autowired
+	UserService userService;
 	
-	public JwtAuthenticationFilter(JWTUtil jwtUtil,UserService userService) {
-        this.jwtUtil=jwtUtil;
-		this.userService = userService;
-    }
-
 	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)
 			throws ServletException, IOException {
